@@ -9,7 +9,9 @@ import {
 } from "react-native";
 import axios from "axios";
 import { Picker } from "@react-native-picker/picker";
-import { API_KEY } from 'react-native-dotenv';
+import Constants from 'expo-constants';
+
+const apiKey = Constants.expoConfig?.extra?.apiKey;
 
 const App = () => {
   const [amount, setAmount] = useState("");
@@ -49,7 +51,7 @@ const App = () => {
         `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`,
         {
           headers: {
-            apikey: API_KEY,
+            apikey: apiKey,
           },
         }
       );
